@@ -4,6 +4,10 @@ const { send2tg } = require("../services/api.service");
 const webhookHandler = async (req, res) => {
   try {
     const { from: user, date, text } = req.body?.message;
+    if (text?.[0] == "/") {
+      return;
+    }
+
     const { _id: user_id } = await User.saveOrUpdate(user);
     const { _id: msg_id } = await Msg.save({
       user: user_id,
