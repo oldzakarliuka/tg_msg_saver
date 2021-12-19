@@ -15,7 +15,7 @@ async function AddRow2GoogleSheets(payload) {
   await doc.loadInfo();
   const sheet = doc.sheetsByIndex[0];
 
-  sheet.setHeaderRow([
+  await sheet.setHeaderRow([
     "date",
     "telegram_user_id",
     "username",

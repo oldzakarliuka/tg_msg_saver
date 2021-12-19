@@ -1,4 +1,4 @@
-const { TGBOT_URL, BOT_TOKEN } = require("../env");
+const { TGBOT_HOST, BOT_TOKEN } = require("../env");
 const axios = require("axios");
 
 const axiosInstance = (baseURL) => {
@@ -17,7 +17,7 @@ const axiosInstance = (baseURL) => {
   return instance;
 };
 
-const http = axiosInstance(`${TGBOT_URL}bot${BOT_TOKEN}/`);
+const http = axiosInstance(`${TGBOT_HOST}bot${BOT_TOKEN}/`);
 
 module.exports.send2tg = async function (chat_id, text) {
   return await http.post(`sendmessage`, { chat_id, text });
